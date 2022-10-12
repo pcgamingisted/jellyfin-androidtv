@@ -373,7 +373,7 @@ public class ItemListFragment extends Fragment implements View.OnKeyListener {
                 favSongs.setRecursive(true);
                 favSongs.setFilters(new ItemFilter[]{ItemFilter.IsFavoriteOrLikes});
                 favSongs.setSortBy(new String[]{ItemSortBy.Random});
-                favSongs.setLimit(150);
+                favSongs.setLimit(5000);
                 apiClient.getValue().GetItemsAsync(favSongs, itemResponse);
             } else {
                 PlaylistItemQuery playlistSongs = new PlaylistItemQuery();
@@ -385,7 +385,7 @@ public class ItemListFragment extends Fragment implements View.OnKeyListener {
                         ItemFields.Chapters,
                         ItemFields.ChildCount
                 });
-                playlistSongs.setLimit(150);
+                playlistSongs.setLimit(5000);
                 apiClient.getValue().GetPlaylistItems(playlistSongs, itemResponse);
             }
         } else {
@@ -399,7 +399,7 @@ public class ItemListFragment extends Fragment implements View.OnKeyListener {
             });
             songs.setIncludeItemTypes(new String[]{"Audio"});
             songs.setSortBy(new String[] {ItemSortBy.SortName});
-            songs.setLimit(200);
+            songs.setLimit(5000);
             apiClient.getValue().GetItemsAsync(songs, itemResponse);
         }
     }
